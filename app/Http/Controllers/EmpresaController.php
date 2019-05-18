@@ -37,6 +37,7 @@ class EmpresaController extends Controller
     {
 		$empresa = new Empresa();
 		$empresa->rut = $request->input('rut');
+	        $empresas->nombre = $request->input('nombre');
 		$empresa->giro = $request->input('giro');
 		$empresa->telefono = $request->input('telefono');
 		$empresa->direccion = $request->input('direccion');

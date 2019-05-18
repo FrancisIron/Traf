@@ -15,6 +15,7 @@ class CreateEmpresasTable extends Migration
     {
         Schema::create('empresas', function (Blueprint $table) {
 	    $table->string('rut')->unique();
+	    $table->string('nombre');
       	    $table->string('giro')->default('N.P');
 	    $table->integer('telefono');
 	    $table->string('direccion');
