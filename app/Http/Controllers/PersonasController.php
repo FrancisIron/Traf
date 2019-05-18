@@ -39,6 +39,11 @@ class PersonasController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'run' => 'required',
+            'telefono' => 'required',
+            'direccion' => 'required'
+        ]);
 	$persona = new Personas();
 	$persona->user_name = "test";
 	$persona->run = $request->input('run');
@@ -56,7 +61,7 @@ class PersonasController extends Controller
      */
     public function show(Personas $personas)
     {
-        //
+        return view('Personas.show',compact('personas'));
     }
 
     /**
@@ -67,7 +72,7 @@ class PersonasController extends Controller
      */
     public function edit(Personas $personas)
     {
-        //
+        return view('Personas.edit',compact('personas'));
     }
 
     /**
@@ -79,7 +84,14 @@ class PersonasController extends Controller
      */
     public function update(Request $request, Personas $personas)
     {
-        //
+        $request->validate([
+            'run' => 'required',
+            'telefono' => 'required',
+            'direccion' => 'required'
+        ]);
+	$personas->update($request->all());
+	return redirect()->route('home')
+                        ->with('success','Datos actuaizados');
     }
 
     /**
@@ -90,6 +102,8 @@ class PersonasController extends Controller
      */
     public function destroy(Personas $personas)
     {
-        //
+        $persona->delete();
+	return redirect()->route('home')
+                        ->with('success','Datos eliminada');
     }
 }

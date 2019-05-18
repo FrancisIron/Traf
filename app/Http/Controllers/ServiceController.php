@@ -74,7 +74,7 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        return view('Service.show',compact('service'));
     }
 
     /**
@@ -85,7 +85,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('Service.edit',compact('service'));
     }
 
     /**
@@ -97,7 +97,17 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'dimicilio' => 'required',
+            'categoria' => 'required',
+            'coste' => 'required',
+        ]);
+	$service->update($request->all());
+  
+        return redirect()->route('Service.index')
+                        ->with('success','Servicio actuaizado');
     }
 
     /**
@@ -108,6 +118,9 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+        
+        return redirect()->route('Service.index')
+                        ->with('success','Servicio eliminado');
     }
 }

@@ -38,7 +38,14 @@ class EmpresaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {	
+	       $request->validate([
+            	'rut' => 'required',
+            	'nombre' => 'required',
+		'giro' => 'required',
+		'telefono' => 'required',
+		'direccion' => 'required'
+       	  	]);
 		$empresa = new Empresa();
 		$empresa->rut = $request->input('rut');
 	        $empresas->nombre = $request->input('nombre');
@@ -59,7 +66,7 @@ class EmpresaController extends Controller
      */
     public function show(Empresa $empresa)
     {
-        //
+        return view('Empresa.show',compact('empresa'));
     }
 
     /**
@@ -70,7 +77,7 @@ class EmpresaController extends Controller
      */
     public function edit(Empresa $empresa)
     {
-        //
+        return view('Empresa.edit',compact('empresa'));
     }
 
     /**
@@ -82,7 +89,16 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
-        //
+	$request->validate([
+                'rut' => 'required',
+                'nombre' => 'required',
+                'giro' => 'required',
+                'telefono' => 'required',
+                'direccion' => 'required'
+                ]);
+        $empresa->update($request->all());
+	return redirect()->route('Empresa.index')
+                        ->with('success','empresa actuaizada');
     }
 
     /**
@@ -93,6 +109,9 @@ class EmpresaController extends Controller
      */
     public function destroy(Empresa $empresa)
     {
-        //
+         $empresa->delete();
+        
+        return redirect()->route('Empresa.index')
+                        ->with('success','Empresa eliminada');
     }
 }

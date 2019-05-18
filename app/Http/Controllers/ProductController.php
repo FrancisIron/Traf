@@ -39,6 +39,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {	
+	$request->validate([
+            'nombre' => 'required',
+            'coste' => 'required',
+            'stock' => 'required',
+	    'descripcion' => 'required',
+            'empresa' => 'required',
+	    'categoria' => 'required'
+        ]);
 	$prod = new Product();
 	$prod->nombre = $request->input('nombre');
 	$prod->coste = $request->input('coste');
@@ -58,7 +66,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('Product.show',compact('product'));
     }
 
     /**
@@ -81,7 +89,17 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'coste' => 'required',
+            'stock' => 'required',
+            'descripcion' => 'required',
+            'empresa' => 'required',
+            'categoria' => 'required'
+        ]);
+        $product->update($request->all());
+	return redirect()->route('Product.index')
+                        ->with('success','Producto actuaizado');
     }
 
     /**
@@ -92,6 +110,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $produt->delete();
+        
+        return redirect()->route('Product.index')
+                        ->with('success','Producto eliminado');
     }
 }
