@@ -41,14 +41,29 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+	$request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required',
+            'dimicilio' => 'required',
+            'categoria' => 'required',
+            'coste' => 'required',
+        ]);
+	if($request->hasFile('img_serv')){
+            $file = $request->file('img_serv');
+            $img_serv = $request->input('nombre').'.jpg';
+            $file->move(public_path().'/service',$img_serv);
+        }
+
 	$serv =  new Service();
 	$serv->nombre_produccto = $request->input('nombre');
+	$serv->path = $img_serv;
 	$serv->descripcion = $request->input('descripcion');
 	$serv->domicilio = $request->input('domicilio');
 	$serv->categoria = $request->input('categoria');
 	$serv->coste = $request->input('coste');
 	$serv->save(); 
-        return $request;
+	
+        return view('home');
     }
 
     /**

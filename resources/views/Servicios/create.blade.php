@@ -51,6 +51,10 @@
                         <label for="exampleFormControlInput1">Coste</label>
                         <input type="number" class="form-control" name="coste">
                 </div>
+	        <div class="form-group">
+                	<strong>Imagen referencial servicio:</strong>
+                	<input type="file" id="path-per" name="img_serv">
+        	</div>
         </div>
 	<div class="col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
