@@ -40,6 +40,7 @@ class PersonasController extends Controller
     public function store(Request $request)
     {
 	$persona = new Personas();
+	$persona->user_name = "test";
 	$persona->run = $request->input('run');
 	$persona->telefono = $request->input('telefono');
 	$persona->direccion = $request->input('direccion');

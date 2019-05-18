@@ -19,8 +19,8 @@ class Empresa extends Model
         return $this->hasMany('App\Product');
     }
 
-
-   public function service(){
+   public function service()
+   {
 	return $this->hasMany('App\Service');
    }
 
