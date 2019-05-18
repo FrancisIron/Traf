@@ -34,8 +34,16 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        return $request;
+    {	
+	$prod = new Product();
+	$prod->nombre = $request->input('nombre');
+	$prod->coste = $request->input('coste');
+	$prod->stock = $request->input('stock');
+	$prod->descripcion = $request->input('descripcion');
+	$prod->empresa = $request->input('empresa');
+	$prod->categoria = $request->input('categoria');
+        $prod->save();
+	return view('home');
     }
 
     /**
