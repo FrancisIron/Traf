@@ -12,7 +12,7 @@ class Service extends Model
 	*
 	*/
 	protected $fillable = [
-		'company','name_service','description_service','name_client','hour','date','reserve','value','ubication','type','in_home'
+		'nombre_produccto','descripcion','domicilio','domicilio','coste'
 	];
 
 	/**
