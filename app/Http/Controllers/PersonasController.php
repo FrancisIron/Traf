@@ -24,7 +24,7 @@ class PersonasController extends Controller
      */
     public function create()
     {
-        //
+        return view('Personas.create');
     }
 
     /**
@@ -35,7 +35,12 @@ class PersonasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+	$persona = new Personas();
+	$persona->run = $request->input('run');
+	$persona->telefono = $request->input('telefono');
+	$persona->direccion = $request->input('direccion');
+	$persona->save();
+        return view('home');
     }
 
     /**

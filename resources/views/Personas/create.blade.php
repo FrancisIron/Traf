@@ -23,18 +23,13 @@
     </div>
 @endif
    
-<form action="{{ route('empresa.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('persona.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 	<div class="container">
 		<div class="form-group">
-			<label for="exampleFormControlInput1">R.U.T de la Empresa</label>
-    			<input type="text" class="form-control" name="rut">
+			<label for="exampleFormControlInput1">R.U.N</label>
+    			<input type="text" class="form-control" name="run">
   		</div>
-	
-		<div class="form-group">
-                        <label for="exampleFormControlInput1">Giro de la Empresa</label>
-                	<input type="text" class="form-control" name="giro">
-		</div>
 		<div class="form-group">
                         <label for="exampleFormControlInput1">Telefono</label>
                         <input type="number" class="form-control" name="telefono">
@@ -42,14 +37,6 @@
 		<div class="form-group">
                         <label for="exampleFormControlInput1">Direccion</label>
                         <input type="text" class="form-control" name="direccion">
-                </div>
-		<div class="form-group">
-                        <label for="exampleFormControlInput1">Email contacto</label>
-                        <input type="email" class="form-control" name="email">
-                </div>
-		<div class="form-group">
-                        <label for="exampleFormControlInput1">Categoria</label>
-                        <input type="text" class="form-control" name="categoria">
                 </div>
         </div>
 	<div class="col-md-12 text-center">
