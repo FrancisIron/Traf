@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Service;
+use App\Product;
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('Servicios.create');
+        //
     }
 
     /**
@@ -35,23 +35,16 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-	$serv =  new Service();
-	$serv->nombre_produccto = $request->input('nombre');
-	$serv->descripcion = $request->input('descripcion');
-	$serv->domicilio = $request->input('domicilio');
-	$serv->categoria = $request->input('categoria');
-	$serv->coste = $request->input('coste');
-	$serv->save(); 
-        return $request;
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Service  $service
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Service $service)
+    public function show(Product $product)
     {
         //
     }
@@ -59,10 +52,10 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Service  $service
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit(Product $product)
     {
         //
     }
@@ -71,10 +64,10 @@ class ServiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Service  $service
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, Product $product)
     {
         //
     }
@@ -82,10 +75,10 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Service  $service
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy(Product $product)
     {
         //
     }

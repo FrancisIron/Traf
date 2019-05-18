@@ -23,20 +23,33 @@
     </div>
 @endif
    
-<form action="{{ route('persona.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('service.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 	<div class="container">
 		<div class="form-group">
-			<label for="exampleFormControlInput1">R.U.N</label>
-    			<input type="text" class="form-control" name="run">
+			<label for="exampleFormControlInput1">Nombre</label>
+    			<input type="text" class="form-control" name="nombre">
   		</div>
 		<div class="form-group">
-                        <label for="exampleFormControlInput1">Telefono</label>
-                        <input type="number" class="form-control" name="telefono">
+                        <label for="exampleFormControlInput1">Categoria</label>
+                        <input type="text" class="form-control" name="categoria">
                 </div>
 		<div class="form-group">
-                        <label for="exampleFormControlInput1">Direccion</label>
-                        <input type="text" class="form-control" name="direccion">
+                        <label for="exampleFormControlInput1">Descripcion</label>
+                        <input type="text" class="form-control" name="descripcion">
+                </div>
+		<div class="form-group">
+                        <label for="exampleFormControlInput1">A domicilio</label>
+                        <div class="input-group mb-3">
+  				<select class="custom-select" name="domicilio" id="inputGroupSelect01">
+    					<option value="0">si</option>
+    					<option value="1">no</option>
+  				</select>
+			</div>
+                </div>
+		<div class="form-group">
+                        <label for="exampleFormControlInput1">Coste</label>
+                        <input type="number" class="form-control" name="coste">
                 </div>
         </div>
 	<div class="col-md-12 text-center">
