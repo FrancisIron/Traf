@@ -32,4 +32,8 @@ class Service extends Model
 	/*protected $casts = [
 	];
 	*/
+    public function empresa()
+    {
+        return $this->belongsTo('App\Empresa');
+    }
 }

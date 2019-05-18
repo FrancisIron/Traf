@@ -9,9 +9,19 @@ class Empresa extends Model
     protected $fillable = [
         'rut','giro','telefono','direccion','email', 'categoria'
     ];
-    
-   public function Service(){
-	return $this->hasMany('App\','patente');
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function productos()
+    {
+        return $this->hasMany('App\Product');
+    }
+
+
+   public function service(){
+	return $this->hasMany('App\Service');
    }
 
 }
