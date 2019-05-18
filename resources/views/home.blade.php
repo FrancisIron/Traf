@@ -13,9 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    You are logged in! {{ Auth::user()->tipo }} 
-		   @if(Auth::user()->name == 0 )
-			lol eres weon
+		   @if(Auth::user()->tipo == 0 )
+			
 		   @endif
                 </div>
             </div>

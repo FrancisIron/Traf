@@ -33,17 +33,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-			
+<!--check if user is loged or not-->		
+			@if (Auth::check())
+			   @if(Auth::user()->tipo == 0 ) 
 				<li class="nav-item dropdown">
        					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           					Registro
        					</a>
         				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
           					<a class="dropdown-item" href="{{ route('empresa.create') }}">Datos Empresa</a>
-          					<a class="dropdown-item" href="#">Servicio</a>
+          					<a class="dropdown-item" href="{{ route('service.create') }}">Servicio</a>
+						<a class="dropdown-item" href="{{ route('product.create') }}">Producto</a>
         				</div>
       				</li>
-			
+			  @endif
+			@endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
